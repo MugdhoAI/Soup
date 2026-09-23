@@ -49,8 +49,8 @@ def test_pretrain_setup_pins_lora_target_resolver_call():
         ),
         patch("soup_cli.utils.moe.detect_moe_model", return_value=False),
         patch(
-            "soup_cli.utils.moe.resolve_moe_lora_targets",
-            side_effect=lambda _model, _tcfg, targets, _console: targets,
+            "soup_cli.utils.moe.get_moe_target_modules",
+            return_value=None,
         ),
         patch(
             "soup_cli.utils.peft_wiring.resolve_lora_target_modules",
